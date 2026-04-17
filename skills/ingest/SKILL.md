@@ -82,4 +82,4 @@ YYYY-MM-DD HH:MM | ingest | raw/<原文> | 新增 summary: <title>（+<N> 个新
 
 ## 示例
 
-- `examples/ingest-session.md` — 一次完整的 ingest 会话
+- `examples/ingest-session.md` — 一次完整的 DNS 文档 ingest 会话
