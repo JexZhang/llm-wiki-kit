@@ -2,6 +2,8 @@ import { Command } from "commander";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import type { InitOptions } from "./commands/init.js";
+import type { ConvertOptions } from "./commands/convert.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const pkg = JSON.parse(
@@ -21,7 +23,7 @@ program
   .option("-y, --yes", "skip interactive prompts and use defaults")
   .option("--path <dir>", "target directory")
   .option("--name <name>", "wiki name")
-  .action(async (opts) => {
+  .action(async (opts: InitOptions) => {
     const { runInit } = await import("./commands/init.js");
     await runInit(opts);
   });
@@ -31,7 +33,7 @@ program
   .description("Batch-convert documents to Obsidian Markdown via pandoc")
   .requiredOption("-i, --input <dir>", "source directory")
   .requiredOption("-o, --output <dir>", "output directory")
-  .action(async (opts) => {
+  .action(async (opts: ConvertOptions) => {
     const { runConvert } = await import("./commands/convert.js");
     await runConvert(opts);
   });
