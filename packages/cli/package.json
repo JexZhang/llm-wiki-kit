@@ -1,0 +1,39 @@
+{
+  "name": "llm-wiki-kit",
+  "version": "0.1.0",
+  "description": "CLI that scaffolds an LLM Wiki and installs skill packages",
+  "type": "module",
+  "bin": {
+    "llm-wiki-kit": "./bin/llm-wiki-kit.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "bin",
+    "dist",
+    "templates",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "commander": "^12.1.0",
+    "execa": "^9.5.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": ["llm", "wiki", "knowledge-base", "obsidian", "skill", "harness"],
+  "license": "MIT"
+}
