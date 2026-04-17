@@ -7,4 +7,4 @@
 - [[递归解析]]
 
 ## Summaries
-- [[DNS 基础]]
+- [[dns-basics]]

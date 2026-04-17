@@ -29,3 +29,21 @@ describe("validate-frontmatter.sh", () => {
     expect(rules).toContain("type-dir-mismatch");
   });
 });
+
+describe("validate-links.sh", () => {
+  it("passes on wiki with all links resolvable", async () => {
+    const { stdout, exitCode } = await run("validate-links.sh", WIKI_OK);
+    expect(exitCode).toBe(0);
+    expect(JSON.parse(stdout).status).toBe("pass");
+  });
+
+  it("reports broken wiki links", async () => {
+    const { stdout, exitCode } = await run("validate-links.sh", WIKI_BAD);
+    expect(exitCode).toBe(1);
+    const out = JSON.parse(stdout);
+    expect(out.status).toBe("fail");
+    const targets = out.errors.map((e: { message: string }) => e.message);
+    expect(targets.some((m: string) => m.includes("不存在的页面"))).toBe(true);
+    expect(targets.some((m: string) => m.includes("也不存在"))).toBe(true);
+  });
+});
