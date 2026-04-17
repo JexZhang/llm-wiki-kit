@@ -47,3 +47,20 @@ describe("validate-links.sh", () => {
     expect(targets.some((m: string) => m.includes("也不存在"))).toBe(true);
   });
 });
+
+describe("validate-index-sync.sh", () => {
+  it("passes when index matches reality", async () => {
+    const { stdout, exitCode } = await run("validate-index-sync.sh", WIKI_OK);
+    expect(exitCode).toBe(0);
+    expect(JSON.parse(stdout).status).toBe("pass");
+  });
+
+  it("reports index missing a page and orphan entry", async () => {
+    const { stdout, exitCode } = await run("validate-index-sync.sh", WIKI_BAD);
+    expect(exitCode).toBe(1);
+    const out = JSON.parse(stdout);
+    const rules = new Set(out.errors.map((e: { rule: string }) => e.rule));
+    expect(rules.has("index-missing-page")).toBe(true);
+    expect(rules.has("index-orphan-entry")).toBe(true);
+  });
+});
