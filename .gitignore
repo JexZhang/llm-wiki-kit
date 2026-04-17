@@ -8,4 +8,5 @@ coverage/
 .vitest/
 tmp/
 .pnpm-store/
-docs/
+docs/superpowers/
+docs/vibe-coding-journal/
