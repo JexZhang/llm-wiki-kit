@@ -6,8 +6,7 @@
   "bin": {
     "llm-wiki-kit": "./bin/llm-wiki-kit.js"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "bin",
