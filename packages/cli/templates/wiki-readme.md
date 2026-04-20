@@ -1,6 +1,6 @@
 # {{WIKI_NAME}}
 
-基于 llm-wiki 模式的个人知识库。由 [llm-wiki-kit](https://github.com/<OWNER>/llm-wiki-kit) 初始化。
+基于 [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)（Karpathy 提出）模式的个人知识库。由 [llm-wiki-kit](https://github.com/<OWNER>/llm-wiki-kit) 初始化。
 
 ## 快速开始
 
